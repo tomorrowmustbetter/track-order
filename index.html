@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Your Order</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<span class="sparkle s1">✦</span>
+<span class="sparkle s2">✧</span>
+<span class="sparkle s3">✦</span>
+<span class="sparkle s4">✧</span>
+<span class="sparkle s5">✦</span>
+<span class="sparkle s6">✧</span>
+
+
+
+<div class="container">
+
+
+    <h1>
+        📦 Track Your Order
+    </h1>
+
+
+    <p class="subtitle">
+        Enter your Twitter / X Account and last 4 digits of your phone
+    </p>
+
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="username"
+            placeholder="@username"
+        >
+
+        <input
+            type="text"
+            id="phoneLast4"
+            placeholder="เบอร์โทร 4 ตัวท้าย"
+            maxlength="4"
+            inputmode="numeric"
+            pattern="[0-9]*"
+        >
+
+        <button onclick="searchTracking()">
+            Search 🔍
+        </button>
+
+    </div>
+
+
+
+    <!-- Loading -->
+
+    <div id="loading" class="hidden">
+
+        <div class="loading-backdrop"></div>
+
+        <div class="loading-card">
+
+            <div class="spinner-wrap">
+                <div class="spinner"></div>
+            </div>
+
+            <h3 id="loadingText">
+                ⏳ Searching...
+            </h3>
+
+            <p>
+                Please wait while we check your order
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Result -->
+
+    <div id="result" class="hidden">
+
+
+        <div class="card">
+
+
+            <h3>
+                📮 Tracking Number
+            </h3>
+
+
+            <div class="tracking-box">
+
+
+                <span id="tracking">
+                    
+                </span>
+
+
+                <button 
+                    id="copyBtn"
+                    onclick="copyTracking()">
+
+                    📋 Copy
+
+                </button>
+
+
+            </div>
+
+
+
+            <h3>
+                🚚 Current Status
+            </h3>
+
+
+            <div class="status-box">
+
+                <p id="status"></p>
+
+                <p id="update"></p>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="card">
+
+
+            <h3>
+                📍 Tracking History
+            </h3>
+
+
+            <div id="timeline">
+
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
