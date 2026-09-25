@@ -69,12 +69,10 @@ function stopLoadingText() {
 // ===========================
 
 function cleanUsername(raw) {
-
-    return "@" +
-        raw
-            .replaceAll("@", "")
-            .trim()
-            .toLowerCase();
+    return raw
+        .replaceAll("@", "")
+        .trim()
+        .toLowerCase();
 }
 
 
