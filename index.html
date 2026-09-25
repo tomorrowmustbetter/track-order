@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Your Order</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <div class="brand">
+            <div class="brand-icon">📦</div>
+        </div>
+
+        <h1>Track Your Order</h1>
+
+        <p class="subtitle">
+            Enter your Twitter / X Account
+        </p>
+
+
+        <!-- =========================
+             PROGRESS
+        ========================== -->
+
+        <div class="progress">
+
+            <div
+                class="progress-step active"
+                id="progressAccount"
+            >
+                <span class="progress-number">01</span>
+                <span class="progress-label">Account</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div
+                class="progress-step"
+                id="progressVerify"
+            >
+                <span class="progress-number">02</span>
+                <span class="progress-label">Verify</span>
+            </div>
+
+            <div class="progress-line"></div>
+
+            <div
+                class="progress-step"
+                id="progressTracking"
+            >
+                <span class="progress-number">03</span>
+                <span class="progress-label">Tracking</span>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             STEP 1 : ACCOUNT
+        ========================== -->
+
+        <div
+            class="search-box"
+            id="stepUsername"
+        >
+
+            <label for="username">
+                Twitter / X Account
+            </label>
+
+            <div class="search-row">
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="@username"
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    onclick="checkUsername()"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             STEP 2 : VERIFY
+        ========================== -->
+
+        <div
+            class="search-box hidden"
+            id="stepPhone"
+        >
+
+            <label for="phoneLast4">
+                Verify Your Order
+            </label>
+
+            <div class="search-row">
+
+                <input
+                    type="text"
+                    id="phoneLast4"
+                    placeholder="Last 4 digits"
+                    maxlength="4"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    autocomplete="off"
+                >
+
+                <button
+                    type="button"
+                    onclick="searchTracking()"
+                >
+                    Search →
+                </button>
+
+            </div>
+
+            <p class="input-hint">
+                Enter the last 4 digits of the phone number used when placing your order.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             WARNING POPUP
+        ========================== -->
+
+        <div
+            id="warningPopup"
+            class="popup hidden"
+        >
+
+            <div
+                class="popup-backdrop"
+                onclick="closeWarning()"
+            ></div>
+
+            <div class="popup-card">
+
+                <div class="popup-icon">
+                    !
+                </div>
+
+                <h3 id="popupTitle">
+                    Something went wrong
+                </h3>
+
+                <p id="popupMessage">
+                    Please check your information and try again.
+                </p>
+
+                <button
+                    type="button"
+                    onclick="closeWarning()"
+                >
+                    Try Again
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             LOADING
+        ========================== -->
+
+        <div
+            id="loading"
+            class="hidden"
+        >
+
+            <div class="loading-backdrop"></div>
+
+            <div class="loading-card">
+
+                <div class="spinner-wrap">
+                    <div class="spinner"></div>
+                </div>
+
+                <h3 id="loadingText">
+                    Searching...
+                </h3>
+
+                <p>
+                    Please wait while we check your order.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             RESULT
+        ========================== -->
+
+        <section
+            id="result"
+            class="hidden"
+        >
+
+            <!-- Tracking Summary -->
+
+            <div class="card tracking-card">
+
+                <div class="result-header">
+
+                    <div class="tracking-section">
+
+                        <span class="section-label">
+                            Tracking Number
+                        </span>
+
+                        <div class="tracking-box">
+
+                            <strong id="tracking">
+                                -
+                            </strong>
+
+                            <button
+                                type="button"
+                                id="copyBtn"
+                                onclick="copyTracking()"
+                            >
+                                Copy
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-container">
+
+                        <span class="section-label">
+                            Current Status
+                        </span>
+
+                        <span
+                            id="status"
+                            class="status-badge"
+                        >
+                            -
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    id="update"
+                    class="status-update"
+                >
+                    -
+                </p>
+
+            </div>
+
+
+            <!-- Tracking History -->
+
+            <div class="card">
+
+                <span class="section-label">
+                    Tracking History
+                </span>
+
+                <div
+                    id="timeline"
+                    class="timeline"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <p class="footer-note">
+            Powered by puaychi
+        </p>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
