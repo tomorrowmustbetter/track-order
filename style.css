@@ -1,15 +1,15 @@
 :root{
-    --bg:#faf1f8;
+    --bg:#f6f8fc;
     --white:#FFFFFF;
 
     --ink:#202124;
-    --ink-soft:#8b647c;
+    --ink-soft:#648b88;
 
-    --accent:#db3b98;
-    --accent-dark:#db3b98;
-    --accent-soft:#ffe8fa;
+    --accent:#1938b8;
+    --accent-dark:#1938b8;
+    --accent-soft:#e8f4ff;
 
-    --border:#eae2e7;
+    --border:#e2e5ea;
 
     --success-bg:#E8F5EE;
     --success-text:#18794E;
