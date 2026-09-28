@@ -1031,3 +1031,9 @@ svg {
         transition-duration: 0.01ms !important;
     }
 }
+body { min-height: 0; }
+.page { padding-top: 20px; padding-bottom: 20px; }
+.popup, #loading {
+    align-items: flex-start;
+    padding-top: 80px;
+}
