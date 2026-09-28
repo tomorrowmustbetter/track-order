@@ -1,4 +1,4 @@
- /* =================================
+/* =================================
    MODERN TECH ORDER TRACKING
 ================================= */
 
@@ -1149,5 +1149,130 @@ svg {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   GOOGLE SITES — FINAL EMBED OVERRIDES
+   Purpose:
+   - Never force the embedded page to 100vh
+   - Let page height follow its actual content
+   - Prevent horizontal overflow inside Google Sites
+   - Keep mobile portrait / landscape / iPad / desktop responsive
+   ========================================================= */
+
+html {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0 !important;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+/* The content itself determines the document height. */
+.page {
+    width: min(720px, calc(100% - 40px));
+    min-height: 0;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep the custom footer close to the actual content. */
+.footer-note {
+    margin-bottom: 0;
+}
+
+/* Google Sites iframe: don't let cards create accidental overflow. */
+.search-box,
+.card,
+#result,
+.tracking-card,
+.popup-card,
+.loading-card {
+    max-width: 100%;
+}
+
+/* Mobile portrait */
+@media (max-width: 600px) {
+    html,
+    body {
+        height: auto;
+        min-height: 0 !important;
+    }
+
+    .page {
+        width: 100%;
+        max-width: 100%;
+        min-height: 0;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .search-box,
+    #result,
+    .card,
+    .tracking-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Mobile landscape */
+@media (orientation: landscape) and (max-width: 900px) {
+    html,
+    body {
+        height: auto;
+        min-height: 0 !important;
+    }
+
+    .page {
+        width: min(720px, calc(100% - 36px));
+        max-width: 720px;
+        padding-top: 20px;
+        padding-bottom: 28px;
+    }
+}
+
+/* iPad / tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    html,
+    body {
+        height: auto;
+        min-height: 0 !important;
+    }
+
+    .page {
+        min-height: 0;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    html,
+    body {
+        height: auto;
+        min-height: 0 !important;
+    }
+}
+
+/* Safe area without adding a giant bottom gap. */
+@supports (padding: max(0px)) {
+    .page {
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
     }
 }
