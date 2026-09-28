@@ -1,4 +1,4 @@
-/* =================================
+ /* =================================
    MODERN TECH ORDER TRACKING
 ================================= */
 
@@ -924,16 +924,25 @@ svg {
 
 
 /* =================================
-   MOBILE LANDSCAPE
+   GOOGLE SITES / MOBILE LANDSCAPE
 ================================= */
 
 /*
-   Phones in landscape can be wider than 600px.
-   This keeps them responsive without changing the iPad
-   landscape layout (which normally has a taller viewport).
+   Google Sites embeds this page inside an iframe.
+   On a phone in landscape, the iframe can be wider than
+   600px even though the device is still a mobile screen.
+   Keep the content responsive without changing iPad rules.
 */
 
-@media (max-height: 600px) and (orientation: landscape) {
+@media (max-height: 600px) and (orientation: landscape) and (max-width: 900px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
 
     .page {
         width: 100%;
@@ -997,6 +1006,7 @@ svg {
     .search-row input {
         width: auto;
         flex: 1 1 auto;
+        min-width: 0;
     }
 
     .search-row button {
@@ -1009,6 +1019,10 @@ svg {
         width: 100%;
         margin-top: 24px;
     }
+
+    .card {
+        max-width: 100%;
+    }
 }
 
 
@@ -1020,6 +1034,7 @@ svg {
 
     .page {
         width: 100%;
+        max-width: 100%;
         padding: 28px 11px 36px;
     }
 
@@ -1079,6 +1094,12 @@ svg {
     .search-box,
     #result,
     .card {
+        max-width: 100%;
+    }
+
+    .search-row,
+    .result-header,
+    .tracking-box {
         max-width: 100%;
     }
 
