@@ -792,8 +792,6 @@ svg {
         box-sizing: border-box;
     }
 
-}
-
     .brand {
         margin-bottom: 28px;
     }
@@ -926,14 +924,103 @@ svg {
 
 
 /* =================================
+   MOBILE LANDSCAPE
+================================= */
+
+/*
+   Phones in landscape can be wider than 600px.
+   This keeps them responsive without changing the iPad
+   landscape layout (which normally has a taller viewport).
+*/
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+    .page {
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px 18px 28px;
+    }
+
+    .brand {
+        margin-bottom: 16px;
+    }
+
+    .brand-icon {
+        font-size: 42px;
+    }
+
+    .page > h1 {
+        font-size: clamp(30px, 7vw, 40px);
+        letter-spacing: -1.2px;
+    }
+
+    .subtitle {
+        margin: 10px 0 22px;
+        font-size: 13px;
+    }
+
+    .progress {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .progress-label {
+        display: none;
+    }
+
+    .progress-step {
+        gap: 0;
+    }
+
+    .progress-number {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+    }
+
+    .progress-line {
+        min-width: 10px;
+        margin: 0 8px;
+    }
+
+    .search-box {
+        width: 100%;
+        padding: 18px 22px;
+    }
+
+    .search-row {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .search-row input {
+        width: auto;
+        flex: 1 1 auto;
+    }
+
+    .search-row button {
+        width: auto;
+        flex: 0 0 auto;
+        min-height: 48px;
+    }
+
+    #result {
+        width: 100%;
+        margin-top: 24px;
+    }
+}
+
+
+/* =================================
    VERY SMALL MOBILE
 ================================= */
 
 @media (max-width: 380px) {
 
     .page {
-        width: calc(100% - 22px);
-        padding-top: 28px;
+        width: 100%;
+        padding: 28px 11px 36px;
     }
 
     .brand {
